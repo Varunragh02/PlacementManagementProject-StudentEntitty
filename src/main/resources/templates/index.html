@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<div>
+		<h1>Student Registration</h1>
+		
+		<tr>
+
+			<form action="#" th:action="@{/submit}"
+				th:object="${student}" method="post">
+
+				<div class="col-sm-5" align="center">
+					<div class="panel-body" align="center">
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th>Student ID</th>
+									<th>Student Name</th>
+									<th>City</th>
+									<th>State</th>
+									<th>pincode</th>
+									<th>BloodGroup</th>
+									<th>Percentage(%)</th>
+									<th>DOB</th>
+									<th>Mailid</th>
+									<th>College</th>
+									<th>Qualification</th>
+									<th>Edit</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="student : ${liststudent }">
+									<td th:text="${student.id}">Student ID</td>
+									<td th:text="${student.studentname}">StudentName</td>
+									<td th:text="${student.city}">City</td>
+									<td th:text="${student.state}">State</td>
+									<td th:text="${student.pincode}">Pincode</td>
+									<td th:text="${student.bloodGroup}">BloodGroup</td>
+									<td th:text="${student.percentage}">Percentage%</td>
+									<td th:text="${student.dob}">DOB</td>
+									<td th:text="${student.mailid}">Mailid</td>
+									<td th:text="${student.college}">College</td>
+									<td th:text="${student.qualification}">Qualification</td>
+									<td><a th:href="@{'/edit/' + ${student.id}}">Edit</a></td>
+									<td><a th:href="@{'/delete/' + ${student.id}}"
+										onclick="return confirm('Are you sure?')">Delete</a></td>
+								<tr>
+									<td colspan="2"><button type="submit" class="btn btn-info">Submit</button>
+									</td>
+								</tr>
+
+								</tr>
+
+
+							</tbody>
+						</table>
+
+					</div>
+
+				</div>
+			</form>
+		</tr>
+
+		</tbody>
+		</table>
+		<div>
+</body>
+</html>
